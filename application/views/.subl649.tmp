@@ -1,0 +1,114 @@
+
+            <div class="card">
+              <div class="card-header">
+              <a href="<?php echo site_url('Welcome/VFormAddSiswa'); ?>">
+              <button type="button" class="btn btn-block btn-success" style="width: 150px">Add Berkas Siswa</button>
+              </a>
+                <h3 class="card-title">Data Berkas Siswa</h3>
+              </div>
+
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">No</th>
+                      <th>NIS</th>
+                      <th>NAMA SISWAS</th>
+                      <th>JENIS KELAMIN</th>
+                      <th>TEMPAT LAHIR</th>
+                      <th>TANGGAL LAHIR</th>
+                      <th>KETERANGAN</th>
+                      <th style="width: 40px">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <?php
+  if(!empty($DataSiswa))
+  {
+    foreach($DataSiswa as $ReadDS)
+    {
+  ?>
+
+  <tr>
+    <td><?= $ReadDS->nis; ?></td>
+    <td><?= $ReadDS->nisn; ?></td>
+    <td><?= $ReadDS->nama_siswa; ?></td>
+    <td><?= $ReadDS->jenis_kelamin; ?></td>
+    <td><?= $ReadDS->tempat_lahir; ?></td>
+    <td><?= $ReadDS->tanggal_lahir; ?></td>
+    <td><?= $ReadDS->keterangan; ?></td>
+    <td>
+      <a href="<?php echo site_url('Welcome/DataSiswa/'.$ReadDS->kd_siswa.'/view') ?>">Update</a>
+      <a href="<?php echo site_url('Welcome/DeleteDataSiswa/'.$ReadDS->nis) ?>">Delete</a>
+    </td>
+  </tr>
+
+  <?php   
+    }
+  }
+  ?>
+                    </tr>
+                    <tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+<table border="1px">
+	<tr>
+		<td colspan="4">
+			<a href="<?php echo site_url('Welcome/VFormAddSiswa'); ?>">Add</a>
+		</td>
+	</tr>
+	<tr>
+		<th>NIS</th>
+		<th>NISN</th>
+		<th>Nama Siswa</th>
+		<th>Jenis Kelamin</th>
+		<th>tempat lahir</th>
+		<th>tanggal lahir</th>
+		<th>keterangan</th>
+		
+	</tr>
+	<?php
+	if(!empty($DataSiswa))
+	{
+		foreach($DataSiswa as $ReadDS)
+		{
+	?>
+
+	<tr>
+		<td><?= $ReadDS->nis; ?></td>
+		<td><?= $ReadDS->nisn; ?></td>
+		<td><?= $ReadDS->nama_siswa; ?></td>
+		<td><?= $ReadDS->jenis_kelamin; ?></td>
+		<td><?= $ReadDS->tempat_lahir; ?></td>
+		<td><?= $ReadDS->tanggal_lahir; ?></td>
+		<td><?= $ReadDS->keterangan; ?></td>
+		<td>
+			<a href="<?php echo site_url('Welcome/DataSiswa/'.$ReadDS->kd_siswa.'/view') ?>">Update</a>
+			<a href="<?php echo site_url('Welcome/DeleteDataSiswa/'.$ReadDS->nis) ?>">Delete</a>
+		</td>
+	</tr>
+
+	<?php		
+		}
+	}
+	?>
+</table>
